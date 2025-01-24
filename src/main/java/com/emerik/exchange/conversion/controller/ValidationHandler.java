@@ -1,4 +1,4 @@
-package com.emerik.exchange.controller;
+package com.emerik.exchange.conversion.controller;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.ResponseEntity;

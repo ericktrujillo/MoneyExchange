@@ -1,4 +1,4 @@
-package com.emerik.exchange.dto;
+package com.emerik.exchange.usuario.dto;
 
 public class TokenDto {
 

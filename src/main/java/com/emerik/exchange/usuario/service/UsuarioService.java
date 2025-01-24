@@ -1,14 +1,12 @@
-package com.emerik.exchange.service;
+package com.emerik.exchange.usuario.service;
 
-import com.emerik.exchange.dto.TokenDto;
-import com.emerik.exchange.model.Usuario;
-import com.emerik.exchange.repository.UsuarioRepo;
+import com.emerik.exchange.usuario.dto.TokenDto;
+import com.emerik.exchange.usuario.model.Usuario;
+import com.emerik.exchange.usuario.repositorio.UsuarioRepo;
 import com.emerik.exchange.security.JwtProvider;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-
-import java.util.Objects;
 
 @Service
 public class UsuarioService {
@@ -27,16 +25,12 @@ public class UsuarioService {
 
     public Mono<Usuario> registroUsuuario(Usuario usuario) {
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-        return usuarioRepo.findByUsername(usuario.getUsername())
-                .filter(user ->{
-                    System.out.println(user);
-                    return true;
-                })
-                .flatMap(user-> {
-                    System.out.println("okkkkk");
-                    return usuarioRepo.save(usuario);
-                        }
-                );
+        return usuarioRepo.existsByUsername(usuario.getUsername())
+                .flatMap(exists -> exists ?
+                        Mono.error(new Throwable("Usuario ya existe!"))
+                        : usuarioRepo.save(usuario));
+
+
     }
 
     public Mono<TokenDto> login(Usuario usuario) {

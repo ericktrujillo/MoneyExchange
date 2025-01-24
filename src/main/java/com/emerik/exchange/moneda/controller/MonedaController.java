@@ -1,8 +1,7 @@
-package com.emerik.exchange.controller;
+package com.emerik.exchange.moneda.controller;
 
-import com.emerik.exchange.model.MonedaCambio;
-import com.emerik.exchange.repository.MonedaRepo;
-import com.emerik.exchange.service.MonedaService;
+import com.emerik.exchange.moneda.model.MonedaCambio;
+import com.emerik.exchange.moneda.service.MonedaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

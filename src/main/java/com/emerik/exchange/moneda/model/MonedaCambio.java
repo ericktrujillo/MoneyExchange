@@ -1,4 +1,4 @@
-package com.emerik.exchange.model;
+package com.emerik.exchange.moneda.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;

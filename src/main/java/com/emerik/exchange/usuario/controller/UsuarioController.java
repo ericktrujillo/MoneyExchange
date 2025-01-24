@@ -1,14 +1,14 @@
-package com.emerik.exchange.controller;
+package com.emerik.exchange.usuario.controller;
 
-import com.emerik.exchange.model.Usuario;
-import com.emerik.exchange.service.UsuarioService;
+import com.emerik.exchange.usuario.model.Usuario;
+import com.emerik.exchange.usuario.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/auth/api/v1")
 public class UsuarioController {
 
     private final UsuarioService service;
@@ -25,7 +25,7 @@ public class UsuarioController {
                 .defaultIfEmpty(ResponseEntity.badRequest().body(null));
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Mono<ResponseEntity> login(@RequestBody Usuario usuario) {
         return service.login(usuario)
                 .map(token -> ResponseEntity.status(HttpStatus.OK).body(token))

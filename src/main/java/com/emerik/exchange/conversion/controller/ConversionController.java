@@ -1,11 +1,12 @@
-package com.emerik.exchange.controller;
+package com.emerik.exchange.conversion.controller;
 
-import com.emerik.exchange.dto.ConversionDto;
-import com.emerik.exchange.model.AuditoriaCambio;
-import com.emerik.exchange.service.ConversionMonedaSerrvice;
+import com.emerik.exchange.conversion.dto.ConversionDto;
+import com.emerik.exchange.conversion.model.AuditoriaCambio;
+import com.emerik.exchange.conversion.service.ConversionMonedaSerrvice;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -32,6 +33,7 @@ public class ConversionController {
                 .defaultIfEmpty(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null));
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/")
     public Flux<AuditoriaCambio> getAuditoriaList(){
         return service.getAuditoriaList();

@@ -1,6 +1,6 @@
-package com.emerik.exchange.repository;
+package com.emerik.exchange.moneda.repositorio;
 
-import com.emerik.exchange.model.MonedaCambio;
+import com.emerik.exchange.moneda.model.MonedaCambio;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

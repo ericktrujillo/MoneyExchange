@@ -1,4 +1,4 @@
-package com.emerik.exchange.dto;
+package com.emerik.exchange.conversion.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

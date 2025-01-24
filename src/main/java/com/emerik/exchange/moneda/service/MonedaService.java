@@ -1,7 +1,7 @@
-package com.emerik.exchange.service;
+package com.emerik.exchange.moneda.service;
 
-import com.emerik.exchange.model.MonedaCambio;
-import com.emerik.exchange.repository.MonedaRepo;
+import com.emerik.exchange.moneda.model.MonedaCambio;
+import com.emerik.exchange.moneda.repositorio.MonedaRepo;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
